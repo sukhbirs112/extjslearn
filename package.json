@@ -1,11 +1,11 @@
 {
   "name": "extjs",
   "version": "1.0.0",
-  "private":true,
+  "private": true,
   "description": "extjs projects done here",
   "main": "app.js",
   "scripts": {
-    "start":"node app",
+    "start": "node app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sukhbir Singh",
