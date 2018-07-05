@@ -4,7 +4,6 @@ Ext.onReady(() => {
     xtype: 'fieldset',
     title: 'Name',
     flex: 1,
-    
     //border: false,
     labelWidth: 60,
     defaultType: 'field',
@@ -28,36 +27,56 @@ Ext.onReady(() => {
     ]
   };
 
-  var fieldset2 =  {
-    xtype: "fieldset",
+  var fieldset2 = Ext.apply({}, {
     flex: 1,
     labelWidth: 30,
     title: 'Address Information',
-    defaultType: 'field',
     defaults: {
       layout: 'column',
-      anchor: "-10"
+      anchor: '100%'
     },
     items: [
       {
         fieldLabel: 'Address',
-        name: 'address',
-        anchor: "-10"
+        name: 'address'
       },
       {
         fieldLabel: 'Street',
         name: 'street'
       },
       {
-        fieldLabel: 'State',
-        name: 'state'
-      },
-      {
-        fieldLabel: 'Zip',
-        name: 'zip'
-      }, 
+        xtype: 'container',
+        items: [
+          {
+            xtype: 'fieldcontainer',
+            columnWidth: .5,
+            items: [
+              {
+                xtype: 'textfield',
+                fieldLabel: 'State',
+                name: 'state',
+                labelWidth: 100,
+                width: 150
+              }
+            ]
+          },
+          {
+            xtype: 'fieldcontainer',
+            columnWidth: .5,
+            items: [
+              {
+                xtype: 'textfield',
+                fieldLabel: 'Zip',
+                name: 'zip',
+                labelWidth: 30,
+                width: 106
+              }
+            ]
+          }
+        ]
+      }
     ]
-  };
+  }, fieldset1);
 
   var fieldsetContainer = {
     xtype: 'container',
@@ -71,62 +90,8 @@ Ext.onReady(() => {
     ]
   };
 
-
-  var tabs = [
-    {
-      xtype: 'fieldcontainer',
-      title: 'Phone Numbers',
-      layout: 'form',
-      bodyStyle: 'padding:6px 6px 0',
-      defaults: {
-        xtype: 'textfield',
-        width: 230
-      },
-      items: [
-        {
-          fieldLabel: 'Home',
-          name: 'home'
-        },
-        {
-          fieldLabel: 'Business',
-          name: 'business'
-        },
-        {
-          fieldLabel: 'Mobile',
-          name: 'mobile'
-        },
-        {
-          fieldLabel: 'Fax',
-          name: 'fax'
-        }
-      ]
-    },
-    {
-      title: 'Resume',
-      xtype: 'htmleditor',
-      name: 'resume'
-    },
-    {
-      title: 'Bio',
-      xtype: 'htmleditor',
-      name: 'bio'
-    }
-  ];
-
-  var tabPanel = {
-    xtype: 'tabpanel',
-    activeTab: 0,
-    deferredRender: false,
-    layoutOnTabChange: true,
-    border: false,
-    flex: 1,
-    plain: true,
-    items: tabs
-  }
-
   var myFormPanel = Ext.create('Ext.form.Panel', {
     renderTo: Ext.getBody(),
-    //height: 700,
     width: 700,
     title: 'Our complex form',
     frame: true,

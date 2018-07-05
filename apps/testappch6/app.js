@@ -235,204 +235,214 @@ Ext.onReady(() => {
     }
   ];
   */
-/*
-var checkboxes = {
-  xtype: 'checkboxgroup',
-  fieldLabel: 'Which do you own',
-  anchor: '100%',
-  items: [
-    {
-      boxLabel: 'Cat',
-      inputValue: 'cat'
-    }, {
+  /*
+  var checkboxes = {
+    xtype: 'checkboxgroup',
+    fieldLabel: 'Which do you own',
+    anchor: '100%',
+    items: [
+      {
+        boxLabel: 'Cat',
+        inputValue: 'cat'
+      }, {
+  
+        boxLabel: 'Dog',
+        inputValue: 'dog'
+      },
+      {
+        boxLabel: 'Fish',
+        inputValue: 'fish'
+      },
+      {
+        boxLabel: 'Bird',
+        inputValue: 'bird'
+      }
+    ]
+  };
+  
+  var fp = Ext.create("Ext.form.Panel", {
+    renderTo: Ext.getBody(),
+    title: "CheckBoxes",
+    height: 200,
+    width: 400,
+    frame: true,
+    items: checkboxes
+  });
+  */
 
-      boxLabel: 'Dog',
-      inputValue: 'dog'
-    },
-    {
-      boxLabel: 'Fish',
-      inputValue: 'fish'
-    },
-    {
-      boxLabel: 'Bird',
-      inputValue: 'bird'
-    }
-  ]
-};
+  // complex form, not working correctly,. The code in the book does not work correctly either. 
+  //Need to trouble shoot 
 
-var fp = Ext.create("Ext.form.Panel", {
-  renderTo: Ext.getBody(),
-  title: "CheckBoxes",
-  height: 200,
-  width: 400,
-  frame: true,
-  items: checkboxes
-});
-*/
-
-// complex form
-
-var fieldset1 = {
-  xtype: "fieldset",
-  title: "Name",
-  flex: 1,
-  stretch:1,
-  border: false,
-  labelWidth: 60,
-  defaultType: "field",
-  defaults: {
-    anchor: "-10",
-    allowBlank: true
-  },
-  items: [
-    {
-      fieldLabel: "First",
-      name: "firstName"
-    },
-    {
-      fieldLabel: "Middle",
-      name: "middle"
-    },
-    {
-      fieldLabel: "Last",
-      name: "lastName"
-    }
-  ]
-};
-
-
-var fieldset2 = Ext.apply({}, {
-  flex: 1,
-  stretch: 1,
-  labelWidth: 30,
-  title: "Address Information",
-  defaults: {
-    layout: "column",
-    anchor: "100%"
-  },
-  items: [
-    {
-      fieldLabel: "Address",
-      name: "address"
-    },
-    {
-      fieldLabel: "Street",
-      name: "street"
-    },
-    {
-      xtype: "container",
-      items: [
-        {
-          xtype: "fieldcontainer",
-          columnWidth: 0.5,
-          items: [
-            {
-              xtype: "textfield",
-              fieldLabel: "State",
-              name: "state",
-              labelWidth: 100,
-              width: 150
-            }
-          ]
-        },
-        {
-          xtype: "fieldcontainer",
-          columnWidth: 0.5,
-          items: [
-            {
-              xtype: "textfield",
-              fieldLabel: "Zip",
-              name: "zip",
-              labelWidth: 30,
-              width: 162
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}, fieldset1);
-
-
-var fieldsetContainer = {
-  xtype: "container",
-  layout: "hbox",
-  layoutConfig: {
-    align: "stretch"
-  },
-  items: [
-    fieldset1,
-    fieldset2
-  ]
-};
-
-var tabs = [
-  {
-    xtype: "fieldcontainer",
-    title: "Phone Numbers",
-    layout: "form",
-    bodyStyle: "padding: 6px 6px 0",
+  var fieldset1 = {
+    xtype: "fieldset",
+    title: "Name",
+    flex: 1,
+    stretch: 1,
+    border: false,
+    labelWidth: 60,
+    defaultType: "field",
     defaults: {
-      xtype: "textfield",
-      width: 230
+      anchor: "-10",
+      allowBlank: true
     },
     items: [
       {
-        fieldLabel: "Home",
-        name: "home"
+        fieldLabel: "First",
+        name: "firstName"
       },
       {
-        fieldLabel: "Business",
-        name: "business"
+        fieldLabel: "Middle",
+        name: "middle"
       },
       {
-        fieldLabel: "Mobile",
-        name: "mobile"
-      },
-      {
-        fieldLabel: "Fax",
-        name: "fax"
+        fieldLabel: "Last",
+        name: "lastName"
       }
     ]
-  },
-  {
-    title: "Resume",
-    xtype: "htmleditor",
-    name: "resume"
-  },
-  {
-    title: "Bio",
-    xtype: "htmleditor",
-    name: "bio"
+  };
+
+
+  var fieldset2 = Ext.apply({}, {
+    flex: 1,
+    stretch: 1,
+    labelWidth: 30,
+    title: "Address Information",
+    defaults: {
+      layout: "column",
+      anchor: "100%"
+    },
+    items: [
+      {
+        fieldLabel: "Address",
+        name: "address"
+      },
+      {
+        fieldLabel: "Street",
+        name: "street"
+      },
+      {
+        xtype: "container",
+        items: [
+          {
+            xtype: "fieldcontainer",
+            columnWidth: 0.5,
+            items: [
+              {
+                xtype: "textfield",
+                fieldLabel: "State",
+                name: "state",
+                labelWidth: 100,
+                width: 150
+              }
+            ]
+          },
+          {
+            xtype: "fieldcontainer",
+            columnWidth: 0.5,
+            items: [
+              {
+                xtype: "textfield",
+                fieldLabel: "Zip",
+                name: "zip",
+                labelWidth: 30,
+                width: 162
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }, fieldset1);
+
+
+  var fieldsetContainer = {
+    xtype: "container",
+    layout: "hbox",
+    layoutConfig: {
+      align: "stretch"
+    },
+    items: [
+      fieldset1,
+      fieldset2
+    ]
+  };
+
+  var tabs = [
+    {
+      xtype: "fieldcontainer",
+      title: "Phone Numbers",
+      layout: "form",
+      bodyStyle: "padding: 6px 6px 0",
+      defaults: {
+        xtype: "textfield",
+        width: 230
+      },
+      items: [
+        {
+          fieldLabel: "Home",
+          name: "home"
+        },
+        {
+          fieldLabel: "Business",
+          name: "business"
+        },
+        {
+          fieldLabel: "Mobile",
+          name: "mobile"
+        },
+        {
+          fieldLabel: "Fax",
+          name: "fax"
+        }
+      ]
+    },
+    {
+      title: "Resume",
+      xtype: "htmleditor",
+      name: "resume"
+    },
+    {
+      title: "Bio",
+      xtype: "htmleditor",
+      name: "bio"
+    }
+  ];
+
+  var tabPanel = {
+    xtype: "tabpanel",
+    activeTab: 0,
+    deferredRender: false,
+    layoutOnTabChange: true,
+    border: false,
+    flex: 1,
+    plain: true,
+    items: tabs
   }
-];
 
-var tabPanel = {
-  xtype: "tabpanel",
-  activeTab: 0,
-  deferredRender: false,
-  layoutOnTabChange: true,
-  border: false,
-  flex: 1,
-  plain: true,
-  items: tabs
-}
+  var myFormPanel = Ext.create("Ext.form.Panel", {
+    renderTo: Ext.getBody(),
+    width: 700,
+    title: "Our complex form",
+    frame: true,
+    id: "myFormPanel",
+    layout: "vbox",
+    layoutConfig: {
+      align: "stretch"
+    },
+    items: [
+      fieldsetContainer,
+      tabPanel
+    ]
+  });
 
-var myFormPanel = Ext.create("Ext.form.Panel", {
-  renderTo: Ext.getBody(),
-  width: 700,
-  title: "Our complex form",
-  frame: true,
-  id: "myFormPanel",
-  layout: "vbox",
-  layoutConfig: {
-    align: "stretch"
-  },
-  items: [
-    fieldsetContainer,
-    tabPanel
-  ]
-});
+
+
+
+
+
+
+
+
 
 
 
