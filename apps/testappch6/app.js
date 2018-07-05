@@ -1,7 +1,7 @@
 // Always use Ext,onReady, otherwise there will be errors.
 Ext.onReady(() => {
 
- /* basic form 
+ /* basic form
   Ext.QuickTips.init();
   var fpItems = [
     {
@@ -77,8 +77,8 @@ var fp = Ext.create("Ext.form.Panel", {
 */
 
 
-// ComboBox
-
+// ComboBox Local
+/*
 var mySimpleStore = ({
   type: "array",
   fields: ["name"],
@@ -96,6 +96,7 @@ var combo = {
   store: mySimpleStore,
   displayField: "name",
   typeAhead: true,
+  minChars: 1, // set minChars for typeAhead to work.
   mode: "local"
 };
 
@@ -106,10 +107,77 @@ var fp = Ext.create("Ext.form.Panel", {
   bodyStyle: "padding: 6px",
   title: "EXT ComboBox",
   frame: true,
-  //defaultType: "textfield",
+  defaultType: "textfield",
   items: [combo]
 });
 
+*/
 
+
+// ComboBox Remote
+/*
+var remoteJsonStore = Ext.create("Ext.data.JsonStore", {
+  storeId: "people",
+  fields: [
+    "fullName",
+    "id"
+  ],
+  proxy: {
+    type: "ajax",
+    url: "/testappch6/data.json",
+    reader: {
+      type: "json",
+      root: "records",
+      totalProperty: "totalCount"
+    }
+  }
+});
+
+
+var combo = {
+  xtype: "combo",
+  queryMode: "remote",
+  fieldLabel: "Search by name",
+  width: 320,
+  forceSelection: true,
+  displayField: "fullName",
+  valueField: "id",
+  minChars: 1,
+  triggerAction: "all",
+  store: remoteJsonStore,
+  pageSize: 2,
+  limit:4
+};
+
+var fp = Ext.create("Ext.form.Panel", {
+  renderTo: Ext.getBody(),
+  height: 400,
+  width: 400,
+  bodyStyle: "padding: 6px",
+  title: "Ext ComboBox",
+  frame: true,
+  defaultType: "textfield",
+  items: [combo]
+});
+*/
+
+
+// html editor
+
+var htmlEditor = {
+  xtype: "htmleditor",
+  fieldLabel: "Enter in any text.",
+  anchor: "100% 100%"
+};
+
+var fp = Ext.create("Ext.form.Panel", {
+  renderTo: Ext.getBody(),
+  height: 400,
+  width: 400,
+  title: "Ext html editor",
+  frame: true,
+  defaultType: "textfield",
+  items: [htmlEditor]
+});
 
 });// end of onReady()
