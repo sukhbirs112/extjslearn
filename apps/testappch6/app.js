@@ -115,7 +115,7 @@ Ext.onReady(() => {
 
 
   // ComboBox Remote
-  /*
+  
   var remoteJsonStore = Ext.create("Ext.data.JsonStore", {
     storeId: "people",
     fields: [
@@ -132,6 +132,7 @@ Ext.onReady(() => {
       }
     }
   });
+  
   
   
   var combo = {
@@ -159,7 +160,7 @@ Ext.onReady(() => {
     defaultType: "textfield",
     items: [combo]
   });
-  */
+  
 
 
   // html editor
@@ -272,7 +273,7 @@ Ext.onReady(() => {
 
   // complex form, not working correctly,. The code in the book does not work correctly either. 
   //Need to trouble shoot 
-
+/*
   var fieldset1 = {
     xtype: "fieldset",
     title: "Name",
@@ -440,7 +441,7 @@ Ext.onReady(() => {
 
 
 
-
+*/
 
 
 

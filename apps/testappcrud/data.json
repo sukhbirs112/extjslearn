@@ -1,0 +1,33 @@
+{
+  "people": [
+    {
+      "name": "Alex",
+      "id": "0"
+    },
+    {
+      "name": "Brian",
+      "id": "1"
+    },
+    {
+      "name": "Carl",
+      "id": "2"
+    },
+    {
+      "name": "Dan",
+      "id": "3"
+    },
+    {
+      "name": "Eric",
+      "id": "4"
+    },
+    {
+      "name": "Fred",
+      "id": "5"
+    },
+    {
+      "name": "Greg",
+      "id": "6"
+    }
+  ],
+  "success":"true"
+}
