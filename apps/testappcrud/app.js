@@ -19,14 +19,23 @@ Ext.onReady(() => {
     autoLoad: true // need to load for any data to load
   });
 
+  var cellEdit = Ext.create("Ext.grid.plugin.CellEditing", {
+    clicksToEdit: 1
+  });
+
 
   Ext.create("Ext.grid.Panel", {
     renderTo: Ext.getBody(),
     store: Ext.data.StoreManager.lookup("peopleStore"),
+    selType: "cellmodel",
+    plugins: [
+      cellEdit
+    ],
     columns: [
       {
         header: "Name",
-        dataIndex: "name"
+        dataIndex: "name",
+        editor: "textfield"
       },
       {
         header: "id",
@@ -37,5 +46,7 @@ Ext.onReady(() => {
     width: 205,
     autoScroll: true
   });
+
+
 
 });// end of onReady()
