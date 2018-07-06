@@ -4,7 +4,7 @@ const PATH = require("path");
 var app = EXPRESS();
 
 app.use ((req,res,next)=> {
-  console.log(req.url);
+  console.log(`${req.method} ${req.url}`);
   next();
 });
 
