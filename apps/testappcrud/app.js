@@ -73,8 +73,9 @@ Ext.onReady(() => {
       let selectionModel = Ext.getCmp("myGrid").getSelectionModel();
       if (selectionModel.hasSelection()) {
         let store = Ext.data.StoreManager.lookup("peopleStore");
-        let row = selectionModel.getSelection()[0].index;//need to fix to get correct id, not index
-        store.removeAt(row);
+        let rowItem = selectionModel.getSelection()[0];//need to fix to get correct id, not index
+        //console.log(rowItem);
+        store.remove(rowItem);
       }
     }
 
